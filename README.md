@@ -7,7 +7,6 @@ Angular UI for the Mini Item Directory: a small app where a user can add an item
 ## Live demo
 
 - **App (this frontend):** https://miniitemdirectoryfrontend.onrender.com
-- **API (backend):** https://miniitemdirectorybackend.onrender.com
 
 Backend repo: https://github.com/Kk-1020/MiniItemDirectoryBackend
 
