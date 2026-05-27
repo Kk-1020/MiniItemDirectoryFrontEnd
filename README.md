@@ -57,7 +57,7 @@ Open the app and try the two example cases:
 
 ## Approximate hours spent
 
-~5 hours total across frontend and backend (build, environment setup,
+~2 hours total across frontend and backend (build, environment setup,
 deployment, and documentation).
 
 ## Use of AI coding tools
