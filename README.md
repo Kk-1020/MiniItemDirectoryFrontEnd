@@ -1,59 +1,67 @@
-# Frontend
+# Mini Item Directory — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.12.
+Angular UI for the Mini Item Directory: a small app where a user can add an item
+(name + category) and search items by name. This repository holds the
+**frontend**; the Spring Boot backend is in a separate repository.
 
-## Development server
+## Live demo
 
-To start a local development server, run:
+- **App (this frontend):** https://miniitemdirectoryfrontend.onrender.com
+- **API (backend):** https://miniitemdirectorybackend.onrender.com
 
-```bash
-ng serve
-```
+Backend repo: https://github.com/Kk-1020/MiniItemDirectoryBackend
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+> Note: the backend runs on a free hosting tier, so the first action after a
+> period of inactivity may take ~30–60 seconds while the service wakes up.
 
-## Code scaffolding
+## Tech stack
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Angular 21 (standalone components, zoneless change detection)
+- TypeScript
+- Plain CSS (no design system — minimal styling, per the exercise)
 
-```bash
-ng generate component component-name
-```
+## How to run locally
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+**Prerequisites:** Node.js 20+ and npm. The backend must also be running locally
+on http://localhost:8080 (see the backend repo) — the dev build points there
+automatically.
 
 ```bash
-ng build
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The app starts on http://localhost:4200.
 
-## Running unit tests
+The backend URL is configured in `src/environments/`:
+`environment.development.ts` points at localhost for `npm start`, and
+`environment.ts` points at the deployed API for the production build.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## How to test it
 
-```bash
-ng test
-```
+Open the app and try the two example cases:
 
-## Running end-to-end tests
+1. **Add and search:** add a Book named `Atomic Habits`, then type `atom` in the
+   search box and search — the item appears in the list.
+2. **Validation:** leave the name empty and click *Add item* — the form shows a
+   "Name is required" message and nothing is added. (An empty name is also
+   rejected by the API with `400 Bad Request`.)
 
-For end-to-end (e2e) testing, run:
+## Known limitations
 
-```bash
-ng e2e
-```
+- Data is stored in the backend's in-memory database, so all items are lost when
+  the backend restarts.
+- Search runs on button click, not live as you type.
+- No edit or delete — only create and search (per the exercise scope).
+- Minimal styling only; no design system.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Approximate hours spent
 
-## Additional Resources
+~5 hours total across frontend and backend (build, environment setup,
+deployment, and documentation).
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Use of AI coding tools
+
+I used Claude (Anthropic) to scaffold the Angular project, generate the
+component and API service, and draft this README. I reviewed all generated
+code, ran the build and tests, and handled deployment myself.
