@@ -1,0 +1,45 @@
+main {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input,
+select {
+  display: block;
+  padding: 0.4rem;
+  margin-top: 0.2rem;
+  min-width: 16rem;
+}
+
+button {
+  padding: 0.4rem 0.9rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+.error {
+  color: #b00020;
+}
+
+.ok {
+  color: #0a7d24;
+}
+
+.cat {
+  color: #666;
+}

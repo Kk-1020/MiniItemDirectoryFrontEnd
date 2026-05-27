@@ -1,0 +1,61 @@
+<main>
+  <h1>Mini Item Directory</h1>
+
+  <section>
+    <h2>Add an item</h2>
+
+    <label>
+      Name
+      <input
+        type="text"
+        [ngModel]="name()"
+        (ngModelChange)="name.set($event)"
+        placeholder="e.g. Atomic Habits"
+        maxlength="100" />
+    </label>
+
+    <label>
+      Category
+      <select [ngModel]="category()" (ngModelChange)="category.set($event)">
+        @for (c of categories; track c) {
+          <option [value]="c">{{ c }}</option>
+        }
+      </select>
+    </label>
+
+    <button type="button" (click)="addItem()">Add item</button>
+
+    @if (addMessage()) {
+      <p class="ok">{{ addMessage() }}</p>
+    }
+    @if (addError()) {
+      <p class="error">{{ addError() }}</p>
+    }
+  </section>
+
+  <section>
+    <h2>Search items</h2>
+
+    <input
+      type="text"
+      [ngModel]="searchQuery()"
+      (ngModelChange)="searchQuery.set($event)"
+      (keyup.enter)="search()"
+      placeholder="Search by name…" />
+    <button type="button" (click)="search()">Search</button>
+
+    @if (listError()) {
+      <p class="error">{{ listError() }}</p>
+    }
+
+    @if (items().length === 0) {
+      <p>No items found.</p>
+    } @else {
+      <ul>
+        @for (item of items(); track item.id) {
+          <li>{{ item.name }} <span class="cat">({{ item.category }})</span></li>
+        }
+      </ul>
+    }
+  </section>
+</main>
